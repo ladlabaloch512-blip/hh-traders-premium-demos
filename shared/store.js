@@ -98,6 +98,13 @@
       '<div class="cbody"><span class="ccat">' + CATS[p.cat].name + '</span><h3><a href="product.html?id=' + p.id + '">' + p.name + '</a></h3>' + stars(p.rating) +
       '<div class="crow"><span class="price">' + money(p.price) + '</span><span><button class="qvBtn" data-qv="' + p.id + '">Quick view</button> <button class="addBtn" data-add="' + p.id + '">Add to Cart</button></span></div></div></article>';
   }
+  function rowHTML(p, i) {
+    return '<article class="rowcard rv" style="--d:' + ((i % 8) * 0.045) + 's"><div class="rimg"><a href="product.html?id=' + p.id + '"><img loading="lazy" width="300" height="224" src="' + catImg(p.cat) + '" alt="' + p.name + '"></a></div>' +
+      '<div class="rbody"><span class="ccat">' + CATS[p.cat].name + '</span><h3><a href="product.html?id=' + p.id + '">' + p.name + '</a></h3>' + stars(p.rating) +
+      '<p class="rblurb">' + p.blurb + '</p></div>' +
+      '<div class="rside"><span class="rindex">ITEM ' + ("0" + p.id).slice(-2) + '</span><span class="price">' + money(p.price) + '</span>' +
+      '<span><button class="qvBtn" data-qv="' + p.id + '">Quick view</button></span><button class="addBtn" data-add="' + p.id + '">Add to Cart</button></div></article>';
+  }
   function renderInto(el, list) { el.innerHTML = list.length ? list.map(cardHTML).join("") : '<div class="emptyBox" style="grid-column:1/-1"><h3>No products found</h3><p>Try a different search or filter.</p></div>'; syncWishButtons(); observeReveals(el); }
 
   /* ---------- reveal on scroll ---------- */
@@ -154,9 +161,9 @@
   function initSlider() {
     var s = $("[data-slider]"); if (!s) return;
     var track = $(".slides", s), slides = $$(".slide", s), dotsBox = $(".sldots", s), prog = $(".slprog", s);
-    var idx = 0, timer = null;
+    var idx = 0, timer = null; if (slides[0]) slides[0].classList.add("on");
     slides.forEach(function (_, i) { var d = document.createElement("button"); d.className = "sldot" + (i === 0 ? " on" : ""); d.setAttribute("aria-label", "Go to slide " + (i + 1)); d.addEventListener("click", function () { go(i); restart(); }); dotsBox.appendChild(d); });
-    function go(i) { idx = (i + slides.length) % slides.length; track.style.transform = "translateX(-" + idx * 100 + "%)"; $$(".sldot", dotsBox).forEach(function (d, j) { d.classList.toggle("on", j === idx); }); runProg(); }
+    function go(i) { idx = (i + slides.length) % slides.length; slides.forEach(function (sl, j) { sl.classList.toggle("on", j === idx); }); track.style.transform = "translateX(-" + idx * 100 + "%)"; $$(".sldot", dotsBox).forEach(function (d, j) { d.classList.toggle("on", j === idx); }); runProg(); }
     function runProg() { if (!prog || !prog.animate) return; prog.getAnimations().forEach(function (a) { a.cancel(); }); prog.style.width = "0"; prog.animate([{ width: "0" }, { width: "100%" }], { duration: 5000, easing: "linear" }); }
     function restart() { if (timer) clearInterval(timer); timer = setInterval(function () { go(idx + 1); }, 5000); runProg(); }
     var prev = $(".slarrow.prev", s), next = $(".slarrow.next", s);
@@ -256,8 +263,17 @@
       if (state.sort === "name") list.sort(function (a, b) { return a.name.localeCompare(b.name); });
       return list;
     }
-    function draw() { grid.style.opacity = "0"; setTimeout(function () { renderInto(grid, current()); var c = $("#resCount"); if (c) c.textContent = current().length + " products"; grid.style.transition = "opacity .3s"; grid.style.opacity = "1"; }, 160); }
-    $$(".chip[data-cat]").forEach(function (ch) { ch.classList.toggle("on", ch.dataset.cat === state.cat); ch.addEventListener("click", function () { state.cat = ch.dataset.cat; $$(".chip[data-cat]").forEach(function (x) { x.classList.toggle("on", x === ch); }); draw(); }); });
+    var layout = document.body.dataset.shop || "grid";
+    function draw() { grid.style.opacity = "0"; setTimeout(function () {
+      var list = current();
+      if (layout === "row") { grid.innerHTML = list.length ? list.map(rowHTML).join("") : '<div class="emptyBox"><h3>No products found</h3><p>Try a different filter.</p></div>'; syncWishButtons(); observeReveals(grid); }
+      else renderInto(grid, list);
+      var c = $("#resCount"); if (c) c.textContent = list.length + " products"; grid.style.transition = "opacity .3s"; grid.style.opacity = "1"; }, 160); }
+    function setCat(cat) { state.cat = cat; $$("[data-catpick]").forEach(function (x) { x.classList.toggle("on", x.dataset.catpick === cat); }); var lbl = $("#catBtnLabel"); if (lbl) lbl.textContent = cat === "all" ? "All Products" : CATS[cat].name; draw(); }
+    $$("[data-catpick]").forEach(function (ch) { ch.classList.toggle("on", ch.dataset.catpick === state.cat); ch.addEventListener("click", function () { setCat(ch.dataset.catpick); var dd = ch.closest(".catdrop"); if (dd) dd.classList.remove("open"); }); });
+    var catBtn = $("#catBtn");
+    if (catBtn) { catBtn.addEventListener("click", function () { var dd = catBtn.closest(".catdrop"); var open = dd.classList.toggle("open"); catBtn.setAttribute("aria-expanded", open); }); document.addEventListener("click", function (e) { var dd = catBtn.closest(".catdrop"); if (dd && !dd.contains(e.target)) dd.classList.remove("open"); }); }
+    if (state.cat !== "all") { var lbl2 = $("#catBtnLabel"); if (lbl2) lbl2.textContent = CATS[state.cat].name; $$("[data-catpick]").forEach(function (x) { x.classList.toggle("on", x.dataset.catpick === state.cat); }); }
     var sort = $("#sortSel"); if (sort) sort.addEventListener("change", function () { state.sort = sort.value; draw(); });
     var rng = $("#priceRange"); if (rng) rng.addEventListener("input", function () { state.max = +rng.value; var l = $("#priceVal"); if (l) l.textContent = money(state.max); draw(); });
     var rt = $("#rateSel"); if (rt) rt.addEventListener("change", function () { state.minr = +rt.value; draw(); });
