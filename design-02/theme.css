@@ -22,6 +22,11 @@
 .grid{grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
 .card{border:none;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0}
 .cats{grid-template-columns:repeat(4,1fr)}
+.shopgrid{grid-template-columns:1fr}
+.rowcard h3{text-transform:uppercase}
 .secHead h2{text-transform:uppercase;font-size:24px}
+.shopgrid{grid-template-columns:1fr}
+.rowcard .rindex{font-family:'IBM Plex Mono',monospace}
+.rowcard h3{font-weight:800;text-transform:uppercase;font-size:17px}
 @media(max-width:900px){.layoutwrap{grid-template-columns:1fr}.rail{position:static;height:auto}.rail nav{display:none}.rail .rsec{display:none}.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.cats{grid-template-columns:repeat(2,1fr)}.slidecap h2{font-size:27px}.slidecap{margin:0 14px 14px;padding:18px 20px}}
