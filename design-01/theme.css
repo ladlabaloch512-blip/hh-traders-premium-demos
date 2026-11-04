@@ -1,1 +1,21 @@
-/* placeholder */
+/* Design 01 - Saddar Editorial */
+:root{--bg:#FBF7EF;--surface:#FFFDF7;--ink:#1C1A17;--muted:#5A5348;--line:#DDD3BF;--accent:#B3271E;--on-accent:#FFFFFF;--font-d:'Playfair Display',Georgia,serif;--font-b:'Source Serif 4',Georgia,serif;--radius:2px}
+.themebar{background:#1C1A17}
+.mast-top{border-top:6px double var(--ink);border-bottom:1px solid var(--ink);padding:9px 0;font-size:11.5px;letter-spacing:2px;text-transform:uppercase;display:flex;justify-content:space-between;font-family:'Archivo',sans-serif}
+.mast{text-align:center;padding:22px 0 14px;border-bottom:3px solid var(--ink)}
+.mast .logo{font-size:46px}
+.mast nav{display:flex;gap:30px;justify-content:center;margin-top:10px;font-family:'Archivo',sans-serif;font-size:13px;letter-spacing:2.2px;text-transform:uppercase}
+.mast nav a{text-decoration:none}
+.sitehead{position:static}
+.slider{border:1px solid var(--ink);border-radius:0;margin-top:26px}
+.slider .slide{min-height:380px;display:flex;align-items:flex-end}
+.slidecap{background:rgba(20,18,16,.82);color:#FBF7EF;padding:24px 28px;max-width:600px;margin:0 0 26px 26px}
+.slidecap h2{font-size:42px;line-height:1.05}
+.slidecap p{margin:8px 0 16px;color:#E5DCC8}
+.slidecap .kick{color:#F0A49C}
+.grid{grid-template-columns:repeat(3,1fr)}
+.card{border:none;border-top:2px solid var(--ink);border-radius:0;background:transparent}
+.card .cimg{border-radius:0}
+.cats{grid-template-columns:repeat(4,1fr)}
+.storyband{border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:repeat(2,1fr)}.slidecap h2{font-size:30px}}
