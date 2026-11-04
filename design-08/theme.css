@@ -1,0 +1,16 @@
+/* Design 08 - Market Hall */
+:root{--bg:#FFFFFF;--surface:#FFFFFF;--ink:#20140F;--muted:#7A6A5E;--line:#E7DCD2;--accent:#C2451E;--on-accent:#FFFFFF;--font-d:'Zilla Slab',Georgia,serif;--font-b:'Public Sans',Arial,sans-serif;--radius:4px}
+.logo{font-size:31px}
+.tier2{display:flex;gap:8px;flex-wrap:wrap;padding:0 0 14px}
+.tier2 a{border:1.5px solid var(--ink);border-radius:var(--radius);padding:8px 13px;font-size:13.5px;font-weight:600;text-decoration:none}
+.tier2 a:first-child{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.sitehead{border-bottom:3px solid var(--ink)}
+.slider{margin-top:18px}
+.slider .slide{min-height:380px;display:flex;align-items:flex-end}
+.slidecap{background:#FFF8F0;color:#20140F;padding:22px 26px;max-width:520px;margin:0 0 22px 22px;border-left:6px solid var(--accent);border-radius:var(--radius)}
+.slidecap h2{font-size:36px;line-height:1.08}
+.slidecap p{margin:8px 0 15px;color:#5C4A3E}
+.grid{grid-template-columns:repeat(3,1fr)}
+.cats{grid-template-columns:repeat(4,1fr)}
+.card h3{font-family:var(--font-d)}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:repeat(2,1fr)}.slidecap h2{font-size:27px}}
