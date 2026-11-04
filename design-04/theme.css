@@ -1,1 +1,23 @@
-/* placeholder */
+/* Design 04 - Depot Grid */
+:root{--bg:#EFEFEA;--surface:#FFFFFF;--ink:#111111;--muted:#55534E;--line:#111111;--accent:#0057FF;--on-accent:#FFFFFF;--font-d:'Space Grotesk',Arial,sans-serif;--font-b:'Space Grotesk',Arial,sans-serif;--radius:0px}
+.frame{border:2px solid var(--ink);margin:20px;max-width:1320px;margin-left:auto;margin-right:auto}
+.depothead{display:grid;grid-template-columns:1fr auto 1fr;border-bottom:2px solid var(--ink);align-items:stretch}
+.depothead>div{padding:14px 20px;display:flex;align-items:center}
+.depothead .mid{border-left:2px solid var(--ink);border-right:2px solid var(--ink)}
+.depothead .logo{font-size:24px;letter-spacing:.5px}
+.depothead nav{display:flex;gap:18px;margin-left:auto;font-size:13.5px;text-transform:uppercase;letter-spacing:1px;font-weight:700}
+.depothead nav a{text-decoration:none}
+.sitehead{position:static}
+.slider{border-bottom:2px solid var(--ink);border-radius:0}
+.slider .slide{min-height:360px;display:flex;align-items:flex-end}
+.slidecap{background:var(--bg);border-top:2px solid var(--ink);border-right:2px solid var(--ink);padding:20px 24px;max-width:560px}
+.slidecap h2{font-size:40px;line-height:1;text-transform:uppercase}
+.slidecap p{margin:8px 0 14px;color:var(--muted)}
+.grid{grid-template-columns:repeat(3,1fr);gap:14px}
+.card{border:2px solid var(--ink);border-radius:0}
+.cats{grid-template-columns:repeat(4,1fr);gap:14px}
+.cattile{border:2px solid var(--ink);border-radius:0}
+.secHead h2{text-transform:uppercase}
+.frame .sitefoot{border-top:2px solid var(--ink)}
+@media(max-width:760px){.depothead nav{display:none}}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:repeat(2,1fr)}.frame{margin:10px}.slidecap h2{font-size:28px}.depothead{grid-template-columns:1fr}.depothead .mid{border:none;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);justify-content:center}}
