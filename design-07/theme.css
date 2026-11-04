@@ -1,1 +1,17 @@
-/* placeholder - will be replaced by upload */
+/* Design 07 - Blueprint */
+:root{--bg:#0E2A47;--surface:#0B2239;--ink:#EAF1F8;--muted:#9FB8CE;--line:#2C4E73;--accent:#7FC8E8;--on-accent:#111111;--font-d:'Sora',Arial,sans-serif;--font-b:'Sora',Arial,sans-serif;--radius:2px}
+.logo{letter-spacing:.5px}
+.logo span{color:#7FC8E8}
+.slider{margin-top:22px;border:1px solid var(--line);background:var(--surface);position:relative}
+.slider .slide{min-height:360px;display:flex;align-items:flex-end}
+.slidecap{background:rgba(8,26,43,.88);padding:24px 28px;max-width:580px;margin:0 0 24px 24px;border:1px solid var(--line)}
+.slidecap h2{font-size:40px;line-height:1.05}
+.slidecap p{margin:8px 0 16px;color:#B9CCDF}
+.slidecap .kick{font-family:'JetBrains Mono',monospace}
+.grid{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--surface)}
+.ccat{font-family:'JetBrains Mono',monospace}
+.price{font-family:'JetBrains Mono',monospace}
+.cats{grid-template-columns:repeat(4,1fr)}
+.secHead .note{font-family:'JetBrains Mono',monospace;font-size:12px}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:repeat(2,1fr)}.slidecap h2{font-size:28px}}
