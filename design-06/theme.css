@@ -1,1 +1,14 @@
-/* placeholder */
+/* Design 06 - Metro Wholesale */
+:root{--bg:#FFFFFF;--surface:#FFFFFF;--ink:#0E0E0E;--muted:#5F5F5F;--line:#E4E4E4;--accent:#0F7A4D;--on-accent:#FFFFFF;--font-d:'Inter',Arial,sans-serif;--font-b:'Inter',Arial,sans-serif;--radius:4px}
+.logo{letter-spacing:-.03em;font-weight:800;font-family:var(--font-b);font-size:23px}
+.logo span{color:var(--accent)}
+.slider{margin-top:26px}
+.slider .slide{min-height:400px;display:flex;align-items:flex-end}
+.slidecap{background:rgba(255,255,255,.93);padding:26px 30px;max-width:580px;margin:0 0 28px 28px;border-radius:var(--radius)}
+.slidecap h2{font-size:44px;line-height:1.02;letter-spacing:-.03em;font-weight:800}
+.slidecap p{margin:9px 0 17px;color:#444}
+.grid{grid-template-columns:repeat(3,1fr);gap:26px}
+.card{border:none;background:transparent}
+.card .cbody{padding:12px 2px 0}
+.cats{grid-template-columns:repeat(4,1fr)}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr);gap:16px}.cats{grid-template-columns:repeat(2,1fr)}.slidecap h2{font-size:30px}.slidecap{margin:0 0 16px 16px}}
