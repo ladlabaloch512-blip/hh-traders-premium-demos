@@ -14,4 +14,6 @@
 .slidecap p{margin:8px 0 16px;color:#54493A}
 .grid{grid-template-columns:repeat(3,1fr)}
 .cats{grid-template-columns:repeat(4,1fr)}
-@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:repeat(2,1fr)}.slidecap h2{font-size:28px}}
+.shopgrid{grid-template-columns:repeat(2,1fr)}
+.card h3{font-family:var(--font-d)}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:repeat(2,1fr)}.slidecap h2{font-size:28px}.shopgrid{grid-template-columns:repeat(2,1fr)}}
