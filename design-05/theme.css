@@ -1,1 +1,17 @@
-/* placeholder */
+/* Design 05 - Counter Classic */
+:root{--bg:#F7F2E9;--surface:#FFFDF7;--ink:#2A241C;--muted:#6B5F4B;--line:#D8CFBB;--accent:#8C5A2B;--on-accent:#FFFFFF;--font-d:'Fraunces',Georgia,serif;--font-b:'Source Sans 3',Arial,sans-serif;--radius:4px}
+.topnote{text-align:center;font-size:12.5px;letter-spacing:1.6px;text-transform:uppercase;padding:9px 0;border-bottom:1px solid var(--line);color:var(--muted)}
+.centerhead{text-align:center;padding:20px 0 4px}
+.centerhead .logo{font-size:42px}
+.centerhead .tagline{font-style:italic;font-family:var(--font-d);color:var(--muted);margin-top:2px}
+.centerhead nav{display:flex;gap:28px;justify-content:center;margin-top:12px;font-size:15.5px}
+.centerhead nav a{text-decoration:none;font-weight:600}
+.sitehead{position:static}
+.slider{margin-top:18px;border:1px solid var(--line);background:var(--surface)}
+.slider .slide{min-height:360px;display:flex;align-items:flex-end}
+.slidecap{background:rgba(255,253,247,.94);padding:24px 28px;max-width:560px;margin:0 0 24px 24px;border-left:5px solid var(--accent);border-radius:var(--radius)}
+.slidecap h2{font-size:38px;line-height:1.08;font-weight:600}
+.slidecap p{margin:8px 0 16px;color:#54493A}
+.grid{grid-template-columns:repeat(3,1fr)}
+.cats{grid-template-columns:repeat(4,1fr)}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:repeat(2,1fr)}.slidecap h2{font-size:28px}}
