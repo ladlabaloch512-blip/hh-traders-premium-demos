@@ -1,0 +1,12 @@
+/* Design 10 - Ironworks */
+:root{--bg:#17181A;--surface:#1E2023;--ink:#ECECEA;--muted:#A7A9A7;--line:#33363B;--accent:#E8A33D;--on-accent:#111111;--font-d:'Barlow Condensed',Arial,sans-serif;--font-b:'Barlow',Arial,sans-serif;--radius:3px}
+.logo{font-size:31px;letter-spacing:1px;text-transform:uppercase}
+.slider{margin-top:20px;border:1px solid var(--line);border-radius:0}
+.slider .slide{min-height:380px;display:flex;align-items:flex-end}
+.slidecap{background:rgba(18,19,21,.88);padding:24px 28px;max-width:580px;margin:0 0 24px 24px;border-left:5px solid var(--accent)}
+.slidecap h2{font-size:46px;line-height:.98;text-transform:uppercase}
+.slidecap p{margin:9px 0 16px;color:#C9CBC9}
+.grid{grid-template-columns:repeat(3,1fr)}
+.cats{grid-template-columns:repeat(4,1fr)}
+.secHead h2{text-transform:uppercase;letter-spacing:.5px}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:repeat(2,1fr)}.slidecap h2{font-size:30px}}
