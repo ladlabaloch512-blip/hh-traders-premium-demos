@@ -18,4 +18,7 @@
 .card .cimg{border-radius:0}
 .cats{grid-template-columns:repeat(4,1fr)}
 .storyband{border-top:3px solid var(--ink);border-bottom:1px solid var(--ink)}
+.shopgrid{grid-template-columns:1fr}
+.card h3{font-family:var(--font-d)}
+.rowcard h3{font-family:var(--font-d);font-size:20px}
 @media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:repeat(2,1fr)}.slidecap h2{font-size:30px}}
