@@ -1,1 +1,16 @@
-/* placeholder */
+/* Design 03 - Safety Stripe */
+:root{--bg:#FFFFFF;--surface:#FFFFFF;--ink:#101010;--muted:#5A5A5A;--line:#E3E3E3;--accent:#C8102E;--on-accent:#FFFFFF;--font-d:'Oswald',Arial,sans-serif;--font-b:'Inter',Arial,sans-serif;--radius:3px}
+.stripeband{height:14px;background-color:#F5C518;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36'%3E%3Cpath d='M-9 9 L9 -9 M0 36 L36 0 M27 45 L45 27' stroke='%23101010' stroke-width='13'/%3E%3C/svg%3E")}
+.logo{text-transform:uppercase;font-family:'Oswald',sans-serif;font-size:29px}
+.slider{border-radius:0;margin-top:20px;clip-path:polygon(0 0,100% 0,100% calc(100% - 30px),0 100%);background:#101010}
+.slider .slide{min-height:400px;display:flex;align-items:center}
+.slidecap{color:#fff;padding:30px;max-width:580px}
+.slidecap h2{font-family:'Oswald',sans-serif;font-size:50px;line-height:.98;text-transform:uppercase}
+.slidecap p{margin:10px 0 18px;color:#D8D8D8}
+.slidecap .kick{color:#F5C518}
+.slide>img{opacity:.55}
+.grid{grid-template-columns:repeat(3,1fr)}
+.card{clip-path:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%)}
+.cats{grid-template-columns:repeat(4,1fr)}
+.secHead h2{font-family:'Oswald',sans-serif;text-transform:uppercase}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:repeat(2,1fr)}.slidecap h2{font-size:33px}}
